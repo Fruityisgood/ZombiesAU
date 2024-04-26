@@ -2,9 +2,9 @@
 
 ## About the mod
 
-More Gamemodes is the Among Us mod that addes new gamemodes. Only host need to have mod to work.<br>
+ZombiesAU is an Among Us mod that adds a new gamemode called Zombies. Only host need to have mod to work.<br>
 Among Us version: 2024.3.6<br>
-Join to discord server: https://discord.gg/jJe5kPpbFJ
+Join to discord server: https://discord.gg/nfygEtN6ZN
 
 ## Hotkeys
 
@@ -343,7 +343,7 @@ Game lasts for few round. Random player become killer every round. Killer need t
 | Arrow to nearest survivor |
 
 ### Zombies
-Players killed by impostor are turned into zombies and are on impostors side. Zombies can kill crewmates. Zombies have green name and can see impostors. Depending on options crewmate can kill zombies after completing all tasks. Depending on options you become zombie after being killed by zombie. When you get turned into zombie, you can move after next meeting. Zombies show up as dead during meetings. Special roles and sabotages are disabled. Depending on options you see arrow pointing to zombie(s).
+Players killed by impostor are turned into zombies and are on impostors side. Zombies can infect everyone else. Zombies have green name and can see impostors. Depending on options crewmate can kill zombies after completing all tasks. Special roles and sabotages are disabled. Depending on options you see arrow pointing to zombie(s).
 
 #### Game options
 | Name                          |
