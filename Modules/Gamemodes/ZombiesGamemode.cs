@@ -28,15 +28,15 @@ namespace MoreGamemodes
         public override void OnSetFilterText(HauntMenuMinigame __instance)
         {
             if (__instance.HauntTarget.Data.IsDead && __instance.HauntTarget.IsZombie())
-                __instance.FilterText.text = "Infected Ghost";
+                __instance.FilterText.text = "Zombie Ghost";
             else if (__instance.HauntTarget.Data.IsDead && Main.StandardRoles[__instance.HauntTarget.PlayerId].IsImpostor())
-                __instance.FilterText.text = "Infected Ghost";
+                __instance.FilterText.text = "Zombie Ghost";
             else if (__instance.HauntTarget.Data.IsDead)
                 __instance.FilterText.text = "Crewmate Ghost";
             else if (__instance.HauntTarget.IsZombie())
-                __instance.FilterText.text = "Infected";
+                __instance.FilterText.text = "Zombie";
             else if (Main.StandardRoles[__instance.HauntTarget.PlayerId].IsImpostor())
-                __instance.FilterText.text = "Infected";
+                __instance.FilterText.text = "Zombie";
             else
                 __instance.FilterText.text = "Crewmate";
         }
@@ -114,7 +114,7 @@ namespace MoreGamemodes
             }, 5f, "Fix pet & Make visible");
         }
 
-/*        public override bool OnCastVote(MeetingHud __instance, byte srcPlayerId, byte suspectPlayerId)
+        public override bool OnCastVote(MeetingHud __instance, byte srcPlayerId, byte suspectPlayerId)
         {
             var voter = Utils.GetPlayerById(srcPlayerId);
             var target = Utils.GetPlayerById(suspectPlayerId);
@@ -130,7 +130,7 @@ namespace MoreGamemodes
                 return false;
             }
             return true;
-        }*/
+        }
 
         public override void OnPet(PlayerControl pc)
         {
@@ -183,7 +183,7 @@ namespace MoreGamemodes
             foreach (var pc in PlayerControl.AllPlayerControls)
             {
                 if (pc.IsZombie())
-                    //pc.Data.IsDead = true;
+                    pc.Data.IsDead = true;
             }
             Utils.SendGameData();
             return true;
