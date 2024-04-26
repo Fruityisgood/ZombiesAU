@@ -28,15 +28,15 @@ namespace MoreGamemodes
         public override void OnSetFilterText(HauntMenuMinigame __instance)
         {
             if (__instance.HauntTarget.Data.IsDead && __instance.HauntTarget.IsZombie())
-                __instance.FilterText.text = "Zombie Ghost";
+                __instance.FilterText.text = "Infected Ghost";
             else if (__instance.HauntTarget.Data.IsDead && Main.StandardRoles[__instance.HauntTarget.PlayerId].IsImpostor())
-                __instance.FilterText.text = "Impostor Ghost";
+                __instance.FilterText.text = "Infected Ghost";
             else if (__instance.HauntTarget.Data.IsDead)
                 __instance.FilterText.text = "Crewmate Ghost";
             else if (__instance.HauntTarget.IsZombie())
-                __instance.FilterText.text = "Zombie";
+                __instance.FilterText.text = "Infected";
             else if (Main.StandardRoles[__instance.HauntTarget.PlayerId].IsImpostor())
-                __instance.FilterText.text = "Impostor";
+                __instance.FilterText.text = "Infected";
             else
                 __instance.FilterText.text = "Crewmate";
         }
@@ -80,7 +80,7 @@ namespace MoreGamemodes
         public override void OnSetTaskText(TaskPanelBehaviour __instance, string str)
         {
             if (PlayerControl.LocalPlayer.IsZombie())
-                __instance.taskText.text = Utils.ColorString(Palette.PlayerColors[2], "Zombie\nHelp impostor by killing crewmates.");
+                __instance.taskText.text = Utils.ColorString(Palette.PlayerColors[2], "Fake tasks and kill everyone.");
         }
 
         public override void OnShowSabotageMap(MapBehaviour __instance)
@@ -114,7 +114,7 @@ namespace MoreGamemodes
             }, 5f, "Fix pet & Make visible");
         }
 
-        public override bool OnCastVote(MeetingHud __instance, byte srcPlayerId, byte suspectPlayerId)
+/*        public override bool OnCastVote(MeetingHud __instance, byte srcPlayerId, byte suspectPlayerId)
         {
             var voter = Utils.GetPlayerById(srcPlayerId);
             var target = Utils.GetPlayerById(suspectPlayerId);
@@ -130,7 +130,7 @@ namespace MoreGamemodes
                 return false;
             }
             return true;
-        }
+        }*/
 
         public override void OnPet(PlayerControl pc)
         {
@@ -161,7 +161,7 @@ namespace MoreGamemodes
         {
             if (Main.StandardRoles[killer.PlayerId].IsImpostor() || (killer.IsZombie() && Options.ZombieKillsTurnIntoZombie.GetBool()))
             {
-                target.RpcSetZombieType(ZombieTypes.JustTurned);
+                target.RpcSetZombieType(ZombieTypes.FullZombie);
                 new LateTask(() => target.RpcSetDesyncRole(RoleTypes.Impostor, target.GetClientId()), 0.5f);
                 new LateTask(() => target.RpcSetRoleV2(RoleTypes.Crewmate), 1f);
                 target.RpcSetOutfit(18, "", "", "", "");
