@@ -183,7 +183,7 @@ namespace MoreGamemodes
             foreach (var pc in PlayerControl.AllPlayerControls)
             {
                 if (pc.IsZombie())
-                    pc.Data.IsDead = true;
+                    //pc.Data.IsDead = true;
             }
             Utils.SendGameData();
             return true;
