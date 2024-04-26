@@ -1,4 +1,4 @@
-# More Gamemodes
+# ZombiesAU
 
 ## About the mod
 
