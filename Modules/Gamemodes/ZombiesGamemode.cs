@@ -80,7 +80,7 @@ namespace MoreGamemodes
         public override void OnSetTaskText(TaskPanelBehaviour __instance, string str)
         {
             if (PlayerControl.LocalPlayer.IsZombie())
-                __instance.taskText.text = Utils.ColorString(Palette.PlayerColors[2], "Fake tasks and kill everyone.");
+                __instance.taskText.text = Utils.ColorString(Palette.PlayerColors[2], "You have been infected.\nInfect everyone else.");
         }
 
         public override void OnShowSabotageMap(MapBehaviour __instance)
@@ -159,7 +159,7 @@ namespace MoreGamemodes
 
         public override void OnMurderPlayer(PlayerControl killer, PlayerControl target)
         {
-            if (Main.StandardRoles[killer.PlayerId].IsImpostor() || (killer.IsZombie() && Options.ZombieKillsTurnIntoZombie.GetBool()))
+            if (Main.StandardRoles[killer.PlayerId].IsImpostor() || (killer.IsZombie()))
             {
                 target.RpcSetZombieType(ZombieTypes.FullZombie);
                 new LateTask(() => target.RpcSetDesyncRole(RoleTypes.Impostor, target.GetClientId()), 0.5f);
@@ -183,7 +183,7 @@ namespace MoreGamemodes
             foreach (var pc in PlayerControl.AllPlayerControls)
             {
                 if (pc.IsZombie())
-                    pc.Data.IsDead = true;
+                    //pc.Data.IsDead = true;
             }
             Utils.SendGameData();
             return true;
